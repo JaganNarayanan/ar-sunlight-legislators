@@ -27,6 +27,13 @@ task "db:version" do
   puts "Current version: #{ActiveRecord::Migrator.current_version}"
 end
 
+#--we type this console task so that we can type rake console
+desc "console with files loaded"
+task "console" do
+  exec "irb -r./db/config.rb"
+end
+#-------end----------------------------------------
+
 desc "Run the specs"
 RSpec::Core::RakeTask.new(:specs)
 
